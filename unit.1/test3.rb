@@ -1,8 +1,9 @@
 #!/usr/bin/ruby
 # encoding: UTF-8
 
+print "Escribe crear o eliminar"
 a=gets.chomp()
-puts a
+
 
 if a=="crear" then
 	system("mkdir curso2")
