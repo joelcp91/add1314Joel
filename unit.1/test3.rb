@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 # encoding: UTF-8
 
-a=ARGV.first
+a=gets.chomp()
 puts a
 
 if a=="crear" then
@@ -11,9 +11,11 @@ if a=="crear" then
 	system("mkdir curso2/srd")
 	system("chmod 700 curso2/*")
 	puts "Carpetas creadas!"
+	
 elsif a=="eliminar" then
 	system("rm -r curso2")
 	puts "Carpetas eliminadas!"
+	
 else
 	puts "No entiendo <"+a+">!"
 end
