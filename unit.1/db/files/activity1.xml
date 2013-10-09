@@ -1,50 +1,192 @@
-<?xml version="1.0" encoding="utf-8"?>
-<book xmlns="http://docbook.org/ns/docbook" 
-xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="es">
+<chapter>
+	<title>A1.Acceso Remoto</title>
+	<para>Joel Chávez Perdomo</para>
+	<para>Diego González Abreu</para>
+	<para>Christian Velázquez Álvarez</para>
 	
-<informacion>
-<titulo>Acceso Remoto</titulo>
-<componentes_grupo>
-<1>Cristian Velázquez Álvarez</1>
-<2>Joel Chavez Perdomo</2>
-<3>Diego González Abreu</3>
-</componentes_grupo>
-<introduccion>Conectamos varias maquinas con diferentes 
-Sistema operativo de diferentes formas. </introduccion>
+	<section>
+		<title>Acceso Remoto</title>
+		
+		<para>La práctica integra:</para>
+		<itemizedlist>
+                <listitem>VNC</listitem>
+                <listitem>Escritorio Remoto</listitem>
+                <listitem>Terminal Services</listitem>
+                <listitem>RemoteApp</listitem>
+        </itemizedlist>
+        
+        <title>VNC</title>
+        <para>Previamente, deshabilitar cortafuegos y activar en las opciones de Windows.</para>
+        <para>Seguidamente, en ambos equipos (Windows y Linux) instalamos el software VNC.</para>
+        <para>En ambos equipos (el que remotea y el que va a remotearse) deben tener en funcionamiento el motor de VNC del programa. Mediante la inserción de la  IP del equipo al que queremos visualizar lo podremos concluir:</para>
+        <figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata fileref="../1/2a.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+     <figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata fileref="../1/2a.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+     <figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata fileref="../1/2a.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+        <title>Escritorio Remoto</title>
+        <para>Volvemos, nuevamente, a deshabilitar cortafuegos y activar en las opciones de Windows el acceso remoto.</para>
+        <figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata fileref="../1/3a.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+     <figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata fileref="../1/3b.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+        </figure>
+        <para>Nos conectamos mediante la IP del equipo a remotear:</para>
+        <figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata fileref="../1/3c.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+      </figure>
+      <para>Finalmente, instalamos software cliente RDP en una mñaquina Linux para poder remotear:</para>
+      <figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata fileref="../1/3d.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+      </figure>
+        
+        <title>Terminal Services</title>
+        <para>Para instalar Terminal Server, vamos a Administrador del Servidor -> Funciones -> Agregar Función -> Terminal Server.</para>
+		<figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata fileref="../1/ts1.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+     <para>Comprobaremos los términos y licencias para ver las posibilidades a la hora de trabajar con esta herramienta.</para>
+	<para>Estas son:</para>
+	<para>Licencias de Terminal Services (Licencias de TS) administra las licencias de acceso de cliente de Terminal Services (CAL de TS) que son necesarias para la conexión de cada dispositivo o usuario a un servidor de Terminal Server. Licencias de TS se usa para instalar, emitir y realizar el seguimiento de la disponibilidad de las CAL de TS en un servidor de licencias de Terminal Services.
 
-<Escritorio_remoto_VNC><windows_2008-7><imagedata fileref="../img/2a.png"></imagedata>
-Conectamos mediante VNC 2 windows 1 era windows 7 
-y el otro un windows server 2008</windows_2008-7>
-<linux_windows7>><imagedata fileref="../img/2b.png"></imagedata>En esta parte de conectar de 
-linux a windows nos dio algunos problemas pero gracias a todo el grupo el problema se resolvio casi solo </linux_windows7>
-<linux_linux>><imagedata fileref="../img/2c.png"></imagedata>De linux a linux no tuvimos 
-problemas execto al configurar la ip estatica que se resolvio rapido</linux_linux>
-</Escritorio_remoto_VNC>
+Cuando un cliente, ya sea un usuario o un dispositivo, se conecta a un servidor de Terminal Server, el servidor de Terminal Server determina si es necesaria una CAL de TS. El servidor de Terminal Server solicita entonces una CAL de TS a un servidor de licencias de Terminal Services en nombre del cliente que intenta conectarse al servidor de Terminal Server. Si hay disponible una CAL de TS adecuada en un servidor de licencias, se emite esta CAL de TS para el cliente y el cliente podrá conectarse al servidor de Terminal Server. 
 
-<Escritorio_remoto_RDP>
-><imagedata fileref="../img/3a.png"></imagedata>
-<configurar>En las propiedades del sistema activamos las conecciones de asistencias remota y aunque no se muestra en la 
-imagen tambien activamos la segunda opcion permitir solo las conecciones entrantes desde equipo que ejecuten escritorio remoto</configurar>
-<ejecucion>><imagedata fileref="../img/3b.png"></imagedata>Ejecutamos desde todos los programas en accsorios en el menu inicio conexion a 
-escritorio remoto y desde ahi solo haria falta poner la ip en el apartado equipo,darle a conectar y el nombre de usuario y contraseña</ejecucion>
-<windows7-server>><imagedata fileref="../img/3c.png"></imagedata>si aparece como en la imagen es que todos los pasos han sido completados correctamente</windows7-server>
-<linux-2008>><imagedata fileref="../img/3d.png"></imagedata>Usando el programa vinagre logramos conectar mediante rdp la conexion escritorio remoto de linux a windows server</linux-2008>
-</Escritorio_remoto_RDP>
+Aunque existe un período de gracia de licencias durante el cual no es necesario un servidor de licencias, cuando concluye el período de gracia, los clientes deben tener una CAL de TS válida emitida por un servidor de licencias para poder iniciar sesión en un servidor de Terminal Server.
+
+ Importante  
+ Escritorio remoto admite dos conexiones simultáneas para administrar un equipo de forma remota. No es necesario un servidor de licencias para estas conexiones.
+ 
+
+Para usar Terminal Services, debe tener también, como mínimo, un servidor de licencias implementado en el entorno. En las implementaciones pequeñas, es posible instalar el servicio de función Terminal Server y el servicio de función Licencias de TS en el mismo equipo. En las implementaciones mayores, se recomienda instalar el servicio de función Licencias de TS en un equipo distinto al del servicio de función Terminal Server.
+
+Debe configurar Licencias de TS correctamente para que el servidor de Terminal Server acepte conexiones de clientes. Para que disponga de tiempo suficiente para implementar un servidor de licencias, Terminal Services proporciona al servidor de Terminal Server un período de gracia durante el cual no es necesario un servidor de licencias. Durante este período de gracia, el servidor de Terminal Server puede aceptar conexiones de clientes sin licencia sin ponerse en contacto con un servidor de licencias. El período de gracia empieza la primera vez que el servidor de Terminal Server acepta una conexión de cliente y termina cuando se da cualquiera de las siguientes circunstancias:
+
+Un servidor de licencias emite una CAL de TS para un cliente que se conecta al servidor de Terminal Server.
 
 
-<servidor_terminales><instalacion><imagedata fileref="../img/4a.png"></imagedata>Instalacion de terminal services</instalacion>
-<admin_terminales><imagedata fileref="../img/4b.png"></imagedata>se ven los procesos en escucha</admin_terminales>
-<envio_mensaje><imagedata fileref="../img/4c.png"></imagedata>envio del mensaje al usuario</envio_mensaje>
-<conf_terminales><imagedata fileref="../img/rdp_TS.png"></imagedata>se le dan los permisos de control remoto</conf_terminales>
-<limit_sesion><imagedata fileref="../img/5d.png"></imagedata>el limite de la sesion inactiva se establece a los 5 minutos</limit_sesion></servidor_terminales>
+Se supera el número de días del período de gracia.
 
 
-<Remoteapp>
-<elegir_programas><imagedata fileref="../img/5b.png"></imagedata>se eligen los programas a se va a ejecutar en el cliente</elegir_programas>
-<lista_programas><imagedata fileref="../img/5a.png"></imagedata>Estos son los programas a ejecutar en remoto</lista_programas>
-<admin_remoteapp><imagedata fileref="../img/5c.png"></imagedata>Se puede ver como los programas elegidos tienen acceso web</admin_remoteapp>
+La duración del período de gracia se basa en el sistema operativo que se ejecuta en el servidor de Terminal Server. Los períodos de gracia son los siguientes:
 
 
+Sistema operativo que se ejecuta en el servidor de Terminal Server  Período de gracia  
+Windows Server 2008 
+ 120 días
+ 
+Windows Server 2003 R2
+ 120 días
+ 
+Windows Server 2003
+ 120 días
+ 
+Windows 2000
+ 90 días
+ 
 
-</Remoteapp>
-</informacion>
+De forma predeterminada, después de iniciar sesión como administrador local en un servidor de Terminal Server, aparece un mensaje en la esquina inferior derecha del escritorio donde se indica el número de días que faltan para que finalice el período de gracia de licencias del servidor de Terminal Server.
+
+Antes de que termine el período de gracia de Licencias de TS, debe adquirir e instalar el número adecuado de CAL de TS para cada dispositivo o usuario que necesite conectarse a un servidor de Terminal Server. Además, debe comprobar que el modo de licencia Terminal Services que especifique en el servidor de Terminal Server coincida con el tipo de CAL de TS disponible en el servidor de licencias. El modo de licencia de Terminal Services determina el tipo de CAL de TS que un servidor de Terminal Server solicitará a un servidor de licencias en nombre de un cliente que se conecta al servidor de Terminal Server.</para>
+<figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata fileref="../1/ts2.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+     <figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata fileref="../1/ts3.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+
+	
+	
+		<title>Remote App</title>
+		<para>Procedemos a crear el paquete y configurar el acceso a programas que se remotearán.</para>
+	<figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata fileref="../1/1.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+     <figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata fileref="../1/2.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+     <figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata fileref="../1/3.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure> 
+	<para>Exportamos dichos iconos de acceso al equipo Cliente y ejecutamos.</para>
+	<figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata fileref="../1/4.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+     <figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata fileref="../1/5.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+     <figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata fileref="../1/6.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+    
+    </section>
+</chapter>
+	
