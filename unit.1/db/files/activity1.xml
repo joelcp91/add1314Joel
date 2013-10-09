@@ -1,93 +1,50 @@
-<chapter>
-	<title>Prueba</title>
-	<para>Texto de prueba</para>
+<?xml version="1.0" encoding="utf-8"?>
+<book xmlns="http://docbook.org/ns/docbook" 
+xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="es">
 	
-	<section>
-		<title>Ejemplos</title>
-		
-		<para>Ejemplo de viñetas:</para>
-		<itemizedlist>
-                <listitem>Esquema de particionado con indicación del uso recomendado a cada una.</listitem>
-                <listitem>Usuarios/claves predefinidos.</listitem>
-                <listitem>Instalación y configuración previa al comienzo del curso.</listitem>
-                <listitem>Scripts utilizados</listitem>
-        </itemizedlist>
-		
-		<para>Veamos un ejemplo de imagen</para>
+<informacion>
+<titulo>Acceso Remoto</titulo>
+<componentes_grupo>
+<1>Cristian Velázquez Álvarez</1>
+<2>Joel Chavez Perdomo</2>
+<3>Diego González Abreu</3>
+</componentes_grupo>
+<introduccion>Conectamos varias maquinas con diferentes 
+Sistema operativo de diferentes formas. </introduccion>
 
-	<figure>
-		<title>Contenido XML</title>
-        <mediaobject>
-			<imageobject>
-				<imagedata fileref="../img/logo-opensuse.png" format="PNG"/>
-            </imageobject>
-            <textobject>
-				<phrase>logo opensuse</phrase>
-            </textobject>
-            <caption>
-				<para>logo opensuse</para>
-            </caption>
-        </mediaobject>
-     </figure> 
+<Escritorio_remoto_VNC><windows_2008-7><imagedata fileref="../img/2a.png"></imagedata>
+Conectamos mediante VNC 2 windows 1 era windows 7 
+y el otro un windows server 2008</windows_2008-7>
+<linux_windows7>><imagedata fileref="../img/2b.png"></imagedata>En esta parte de conectar de 
+linux a windows nos dio algunos problemas pero gracias a todo el grupo el problema se resolvio casi solo </linux_windows7>
+<linux_linux>><imagedata fileref="../img/2c.png"></imagedata>De linux a linux no tuvimos 
+problemas execto al configurar la ip estatica que se resolvio rapido</linux_linux>
+</Escritorio_remoto_VNC>
 
-	<para>Ejemplo para incluir un fichero de texto</para>
-	<screen>
-		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-             href="README" parse="text" />
-    </screen>
-    
-	<para>Ejemplo de tabla</para>
-    
-                    <table frame='all'>
-                <title>Particiones aula108 HDD 250GB</title>
-                <tgroup cols='5' align='left' colsep='1' rowsep='1'>
-                        <colspec colname='c1' colwidth="1*"/>
-                        <colspec colname='c2' colwidth="1*"/>
-                        <colspec colname='c3' colwidth="1*"/>
-                        <colspec colname='c4' colwidth="1*"/>
-                        <colspec colname='c5' colwidth="1*"/>
-                <thead>
-                        <row>
-                                <entry>Nº</entry>
-                                <entry>Dispositivo</entry>
-                                <entry>Espacio</entry>
-                                <entry>Punto de montaje</entry>
-                                <entry>Descripción</entry>
-                        </row>
-                </thead>
-                <tbody>
-                        <row>
-                                <entry>1</entry>
-                                <entry>/dev/sda1</entry>
-                                <entry>2 GB</entry>
-                                <entry>-</entry>
-                                <entry>Memoria virtual de la máquina real.</entry>
-                        </row>
-                        <row>
-                                <entry>2</entry>
-                                <entry>/dev/sda2</entry>
-                                <entry>20 GB</entry>
-                                <entry>/</entry>
-                                <entry>Sistema operativo de la máquina real.</entry>
-                        </row>
-                        <row>
-                                <entry>3</entry>
-                                <entry>/dev/sda3</entry>
-                                <entry>106 GB</entry>
-                                <entry>/mnt/asir</entry>
-                                <entry>Datos del usuario ASIR (máquinas virtuales, etc).</entry>
-                        </row>
-                        <row>
-                                <entry>4</entry>
-                                <entry>/dev/sda4</entry>
-                                <entry>106 GB</entry>
-                                <entry>/mnt/daw</entry>
-                                <entry>Datos del usuario DAW (máquinas virtuales, etc).</entry>
-                        </row>
-                </tbody>
-                </tgroup>
-        </table>
+<Escritorio_remoto_RDP>
+><imagedata fileref="../img/3a.png"></imagedata>
+<configurar>En las propiedades del sistema activamos las conecciones de asistencias remota y aunque no se muestra en la 
+imagen tambien activamos la segunda opcion permitir solo las conecciones entrantes desde equipo que ejecuten escritorio remoto</configurar>
+<ejecucion>><imagedata fileref="../img/3b.png"></imagedata>Ejecutamos desde todos los programas en accsorios en el menu inicio conexion a 
+escritorio remoto y desde ahi solo haria falta poner la ip en el apartado equipo,darle a conectar y el nombre de usuario y contraseña</ejecucion>
+<windows7-server>><imagedata fileref="../img/3c.png"></imagedata>si aparece como en la imagen es que todos los pasos han sido completados correctamente</windows7-server>
+<linux-2008>><imagedata fileref="../img/3d.png"></imagedata>Usando el programa vinagre logramos conectar mediante rdp la conexion escritorio remoto de linux a windows server</linux-2008>
+</Escritorio_remoto_RDP>
 
-    </section>
-</chapter>
-	
+
+<servidor_terminales><instalacion><imagedata fileref="../img/4a.png"></imagedata>Instalacion de terminal services</instalacion>
+<admin_terminales><imagedata fileref="../img/4b.png"></imagedata>se ven los procesos en escucha</admin_terminales>
+<envio_mensaje><imagedata fileref="../img/4c.png"></imagedata>envio del mensaje al usuario</envio_mensaje>
+<conf_terminales><imagedata fileref="../img/rdp_TS.png"></imagedata>se le dan los permisos de control remoto</conf_terminales>
+<limit_sesion><imagedata fileref="../img/5d.png"></imagedata>el limite de la sesion inactiva se establece a los 5 minutos</limit_sesion></servidor_terminales>
+
+
+<Remoteapp>
+<elegir_programas><imagedata fileref="../img/5b.png"></imagedata>se eligen los programas a se va a ejecutar en el cliente</elegir_programas>
+<lista_programas><imagedata fileref="../img/5a.png"></imagedata>Estos son los programas a ejecutar en remoto</lista_programas>
+<admin_remoteapp><imagedata fileref="../img/5c.png"></imagedata>Se puede ver como los programas elegidos tienen acceso web</admin_remoteapp>
+
+
+
+</Remoteapp>
+</informacion>
