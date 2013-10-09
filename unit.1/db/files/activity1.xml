@@ -32,17 +32,76 @@ escritorio remoto y desde ahi solo haria falta poner la ip en el apartado equipo
 </Escritorio_remoto_RDP>
 
 
-<servidor_terminales><instalacion><imagedata fileref="../img/4a.png"></imagedata>Instalacion de terminal services</instalacion>
-<admin_terminales><imagedata fileref="../img/4b.png"></imagedata>se ven los procesos en escucha</admin_terminales>
+<servidor_terminales><instalacion><imagedata fileref="../img/4a.png"></imagedata>Para instalar Terminal Server, vamos a Administrador del Servidor -> Funciones -> Agregar Función -> Terminal Server.</instalacion>
+<admin_terminales><imagedata fileref="../img/4b.png"></imagedata>Comprobaremos los términos y licencias para ver las posibilidades a la hora de trabajar con esta herramienta.
+
+Éstas son:
+
+Licencias de Terminal Services (Licencias de TS) administra las licencias de acceso de cliente de Terminal Services (CAL de TS) que son necesarias para la conexión de cada dispositivo o usuario a un servidor de Terminal Server. Licencias de TS se usa para instalar, emitir y realizar el seguimiento de la disponibilidad de las CAL de TS en un servidor de licencias de Terminal Services.
+
+Cuando un cliente, ya sea un usuario o un dispositivo, se conecta a un servidor de Terminal Server, el servidor de Terminal Server determina si es necesaria una CAL de TS. El servidor de Terminal Server solicita entonces una CAL de TS a un servidor de licencias de Terminal Services en nombre del cliente que intenta conectarse al servidor de Terminal Server. Si hay disponible una CAL de TS adecuada en un servidor de licencias, se emite esta CAL de TS para el cliente y el cliente podrá conectarse al servidor de Terminal Server. 
+
+Aunque existe un período de gracia de licencias durante el cual no es necesario un servidor de licencias, cuando concluye el período de gracia, los clientes deben tener una CAL de TS válida emitida por un servidor de licencias para poder iniciar sesión en un servidor de Terminal Server.
+
+ Importante  
+ Escritorio remoto admite dos conexiones simultáneas para administrar un equipo de forma remota. No es necesario un servidor de licencias para estas conexiones.
+ 
+
+Para usar Terminal Services, debe tener también, como mínimo, un servidor de licencias implementado en el entorno. En las implementaciones pequeñas, es posible instalar el servicio de función Terminal Server y el servicio de función Licencias de TS en el mismo equipo. En las implementaciones mayores, se recomienda instalar el servicio de función Licencias de TS en un equipo distinto al del servicio de función Terminal Server.
+
+Debe configurar Licencias de TS correctamente para que el servidor de Terminal Server acepte conexiones de clientes. Para que disponga de tiempo suficiente para implementar un servidor de licencias, Terminal Services proporciona al servidor de Terminal Server un período de gracia durante el cual no es necesario un servidor de licencias. Durante este período de gracia, el servidor de Terminal Server puede aceptar conexiones de clientes sin licencia sin ponerse en contacto con un servidor de licencias. El período de gracia empieza la primera vez que el servidor de Terminal Server acepta una conexión de cliente y termina cuando se da cualquiera de las siguientes circunstancias:
+
+Un servidor de licencias emite una CAL de TS para un cliente que se conecta al servidor de Terminal Server.
+
+
+Se supera el número de días del período de gracia.
+
+
+La duración del período de gracia se basa en el sistema operativo que se ejecuta en el servidor de Terminal Server. Los períodos de gracia son los siguientes:
+
+
+Sistema operativo que se ejecuta en el servidor de Terminal Server  Período de gracia  
+Windows Server 2008 
+ 120 días
+ 
+Windows Server 2003 R2
+ 120 días
+ 
+Windows Server 2003
+ 120 días
+ 
+Windows 2000
+ 90 días
+ 
+
+De forma predeterminada, después de iniciar sesión como administrador local en un servidor de Terminal Server, aparece un mensaje en la esquina inferior derecha del escritorio donde se indica el número de días que faltan para que finalice el período de gracia de licencias del servidor de Terminal Server.
+
+Antes de que termine el período de gracia de Licencias de TS, debe adquirir e instalar el número adecuado de CAL de TS para cada dispositivo o usuario que necesite conectarse a un servidor de Terminal Server. Además, debe comprobar que el modo de licencia Terminal Services que especifique en el servidor de Terminal Server coincida con el tipo de CAL de TS disponible en el servidor de licencias. El modo de licencia de Terminal Services determina el tipo de CAL de TS que un servidor de Terminal Server solicitará a un servidor de licencias en nombre de un cliente que se conecta al servidor de Terminal Server.
+
+CAPTURA activar licensias TS - CARPETA Diego/TS
+
+CAPTURA asistente activar servidor TS 1 - CARPETA Diego/TS
+
+A continuación, procedemos a crear usuarios locales.
+
+Para ello, debemos ir a Administrador de servidor -> Configuración -> Usuarios locales y grupos.
+Creamos y añadimos el usuario diego, joel y christian, éstos son los miembros del grupo. También, es posible que sea conveniente configurar parámetros de "Funciones" para Terminal Services, así como temporalización e interactividad remota.
+
+</admin_terminales>
 <envio_mensaje><imagedata fileref="../img/4c.png"></imagedata>envio del mensaje al usuario</envio_mensaje>
 <conf_terminales><imagedata fileref="../img/rdp_TS.png"></imagedata>se le dan los permisos de control remoto</conf_terminales>
 <limit_sesion><imagedata fileref="../img/5d.png"></imagedata>el limite de la sesion inactiva se establece a los 5 minutos</limit_sesion></servidor_terminales>
 
 
 <Remoteapp>
-<elegir_programas><imagedata fileref="../img/5b.png"></imagedata>se eligen los programas a se va a ejecutar en el cliente</elegir_programas>
-<lista_programas><imagedata fileref="../img/5a.png"></imagedata>Estos son los programas a ejecutar en remoto</lista_programas>
-<admin_remoteapp><imagedata fileref="../img/5c.png"></imagedata>Se puede ver como los programas elegidos tienen acceso web</admin_remoteapp>
+<elegir_programas><imagedata fileref="../img/remoteapp1.png"></imagedata>Procedemos a crear el paquete y configurar el acceso a programas que se remotearán.</elegir_programas>
+<lista_programas><imagedata fileref="../img/remoteapp2.png"></imagedata></lista_programas>
+<admin_remoteapp><imagedata fileref="../img/remoteapp3direct access.png"></imagedata></admin_remoteapp>
+<cliente>
+	<imagedata fileref="../img/iconos app.png"></imagedata>Exportamos dichos iconos de acceso al equipo Cliente y ejecutamos.
+	<imagedata fileref="../img/terminal server 1"></imagedata>
+	<imagedata fileref="../img/TS 2.png"></imagedata>
+</cliente>
 
 
 
