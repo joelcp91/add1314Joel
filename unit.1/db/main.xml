@@ -10,10 +10,14 @@ Administración de Sistemas Operativos
 			<firstname>Joel</firstname>
 			<surname>Chávez Perdomo</surname>
 		</personname>
+	</author>
+	<author>
 		<personname>
 			<firstname>Diego</firstname>
 			<surname>González Abreu</surname>
 		</personname>
+	</author>
+	<author>
 		<personname>
 			<firstname>Christian</firstname>
 			<surname>Velázquez Álvarez</surname>
@@ -21,13 +25,13 @@ Administración de Sistemas Operativos
    </author>
    
 	<legalnotice>
-          <para>Dossier de prácticas de la asignatura</para>
+          <para>Dossier de prácticas</para>
     </legalnotice>
 	<pubdate><?dbtimestamp?></pubdate>
 </info>
 
 
-<xi:include href="files/activity1.xml" />
+<xi:include href="./files/activity1.xml" />
 
 </book>
 
