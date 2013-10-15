@@ -1,0 +1,265 @@
+<chapter>
+	<title>A1:Acceso remoto</title>
+<section>
+		<para>Realizado por:</para>
+		<itemizedlist>
+                <listitem>Joel Chávez Perdomo</listitem>
+        </itemizedlist>
+</section>
+<section>
+	<para>1.Creamos un usuario con nuestro nombre y la contraseña es nuestro DNI en minusculas,</para>
+</section>
+<section>
+	<para>2.Para el ROOT su contraseña va a ser igual a nuestro DNI también en minusculas</para>
+</section>
+<section>
+	<figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata scale="40" fileref="./1/2a.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+</section>
+<section>
+	<figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata scale="40" fileref="./1/2b.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+</section>
+<section>
+	<figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata scale="40" fileref="./1/2c.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+</section>
+<section>
+	<para>Ponemos como nombre de equipo (Hostname) el primer apellido del alumno en minusculas.</para>
+</section>
+<section>
+	<para>Volvemos, nuevamente, a deshabilitar cortafuegos y 
+	activar en las opciones de Windows el acceso remoto.</para>
+</section>
+<section>
+	<figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata scale="40" fileref="./1/3a.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+</section>
+<section>
+	<figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata scale="40" fileref="./1/3b.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+</section>
+<section>
+	<figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata scale="40" fileref="./1/3c.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+</section>
+<section>
+	<para>Finalmente, instalamos software cliente RDP en una máquina 
+	Linux para poder remotear:</para>
+</section>
+<section>
+	<figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata scale="40" fileref="./1/3d.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+</section>
+<section>
+	<para>3.Servidor de Terminales:</para>
+</section>
+<section>
+	<para>Para instalar, vamos a Administrador del Servidor -> Funciones 
+	-> Agregar Función -> Terminal Server.</para>
+</section>
+<section>
+	<figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata scale="40" fileref="./1/ts1.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+</section>
+<section>
+	<para>A continuación, comprobaremos los términos y licencias para 
+	ver las posibilidades a la hora de trabajar con esta herramienta:</para>
+	<para>Cuando un cliente, ya sea un usuario o un dispositivo, se 
+	conecta a un servidor de Terminal Server, el servidor de Terminal 
+	Server determina si es necesaria una CAL de TS. El servidor de 
+	Terminal Server solicita entonces una CAL de TS a un servidor de 
+	licencias de Terminal Services en nombre del cliente que intenta 
+	conectarse al servidor de Terminal Server. Si hay disponible una 
+	CAL de TS adecuada en un servidor de licencias, se emite esta CAL de
+	TS para el cliente y el cliente podrá conectarse al servidor de 
+	Terminal Server.</para> 
+	<para>Aunque existe un período de gracia de licencias durante el 
+	cual no es necesario un servidor de licencias, cuando concluye el 
+	período de gracia, los clientes deben tener una CAL de TS válida 
+	emitida por un servidor de licencias para poder iniciar sesión en un
+    servidor de Terminal Server.</para>
+    <para>Importante: Escritorio remoto admite dos conexiones 
+    simultáneas para administrar un equipo de forma remota. No es 
+    necesario un servidor de licencias para estas conexiones.</para>
+    <para>Para usar Terminal Services, debe tener también, como mínimo, 
+    un servidor de licencias implementado en el entorno. En las 
+    implementaciones pequeñas, es posible instalar el servicio de 
+    función Terminal Server y el servicio de función Licencias de TS en 
+    el mismo equipo. En las implementaciones mayores, se recomienda 
+    instalar el servicio de función Licencias de TS en un equipo 
+    distinto al del servicio de función Terminal Server.</para>
+    <para>Debe configurar Licencias de TS correctamente para que el 
+    servidor de Terminal Server acepte conexiones de clientes. Para que 
+    disponga de tiempo suficiente para implementar un servidor de 
+    licencias, Terminal Services proporciona al servidor de Terminal 
+    Server un período de gracia durante el cual no es necesario un 
+    servidor de licencias. Durante este período de gracia, el servidor 
+    de Terminal Server puede aceptar conexiones de clientes sin licencia
+    sin ponerse en contacto con un servidor de licencias.</para> 
+    <para>El período de gracia empieza la primera vez que el servidor de 
+    Terminal Server acepta una conexión de cliente y termina cuando se 
+    da cualquiera de las siguientes circunstancias:</para>
+    <para>Un servidor de licencias emite una CAL de TS para un cliente 
+    que se conecta al servidor de Terminal Server. Se supera el número 
+    de días del período de gracia. La duración del período de gracia se 
+    basa en el sistema operativo que se ejecuta en el servidor de 
+    Terminal Server.</para> 
+    <para>Los períodos de gracia son los siguientes:</para>
+	<para>
+	Windows Server 2008 
+	120 días
+	</para>
+	<para>
+	Windows Server 2003 R2
+	120 días
+	</para>
+	<para>
+	Windows Server 2003
+	120 días
+	</para>
+	<para>
+	Windows 2000
+	90 días
+	</para>
+	<para>De forma predeterminada, después de iniciar sesión como 
+	administrador local en un servidor de Terminal Server, aparece un 
+	mensaje en la esquina inferior derecha del escritorio donde se 
+	indica el número de días que faltan para que finalice el período de 
+	gracia de licencias del servidor de Terminal Server.</para>
+	<para>Antes de que termine el período de gracia de Licencias de TS, 
+	debe adquirir e instalar el número adecuado de CAL de TS para cada 
+	dispositivo o usuario que necesite conectarse a un servidor de 
+	Terminal Server. Además, debe comprobar que el modo de licencia 
+	Terminal Services que especifique en el servidor de Terminal Server 
+	coincida con el tipo de CAL de TS disponible en el servidor de 
+	licencias. El modo de licencia de Terminal Services determina el 
+	tipo de CAL de TS que un servidor de Terminal Server solicitará a un
+	servidor de licencias en nombre de un cliente que se conecta al 
+	servidor de Terminal Server.</para>
+</section>
+<section>
+	<figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata scale="40" fileref="./1/ts2.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+</section>
+<section>
+	<figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata scale="40" fileref="./1/ts3.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+</section>
+<section>
+	<para>4.Aplicaciones remotas mediante RemoteApp:</para>
+</section>
+<section>
+	<para>Procedemos a crear el paquete y configurar el acceso a programas 
+	que se remotearán.</para>
+</section>
+<section>
+	<figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata scale="40" fileref="./1/1.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+</section>
+<section>
+	<figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata scale="40" fileref="./1/2.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+</section>
+<section>
+	<figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata scale="40" fileref="./1/3.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+</section>
+<section>
+	<para>Exportamos dichos iconos de acceso al equipo Cliente y 
+	ejecutamos.</para>
+</section>
+<section>
+	<figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata scale="40" fileref="./1/4.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+</section>
+<section>
+	<figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata scale="40" fileref="./1/5.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+</section>
+<section>
+	<figure>
+        <mediaobject>
+			<imageobject>
+				<imagedata scale="40" fileref="./1/6.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+     </figure>
+</section>
+</chapter>
+	
