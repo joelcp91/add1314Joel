@@ -7,19 +7,22 @@
         </itemizedlist>
 </section>
 <section>
-	<para>1.Creamos un usuario con nuestro nombre y la contraseña es nuestro DNI en minusculas,</para>
+	<para>1.Creamos un usuario con nuestro nombre y la contraseña es nuestro DNI en minusculas.</para>
 </section>
 <section>
-	<para>2.Para el ROOT su contraseña va a ser igual a nuestro DNI también en minusculas</para>
+	<para>2.Para el ROOT su contraseña va a ser igual a nuestro DNI también en minusculas.</para>
 </section>
 <section>
-	<figure>
-        <mediaobject>
-			<imageobject>
-				<imagedata scale="40" fileref="./1/2a.png" format="PNG"/>
-            </imageobject>
-        </mediaobject>
-     </figure>
+	<para>3.Cambiamos el hostname a mi primer apellido en minusculas.</para>
+</section>
+<section>
+	<para>4.Cambiamos el nombre del dominio a mi segundo apellido en minusculas.</para>
+</section>
+<section>
+	<para>5.Creamos 3 usuarios.</para>
+</section>
+<section>
+	<para>6.Instalamos el servicio LTSP y creamos una estacion de trabajo para el cliente( ltsp-build-client ).</para>
 </section>
 <section>
 	<figure>
