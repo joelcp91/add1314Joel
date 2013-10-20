@@ -64,7 +64,10 @@
      </figure>
 </section>
 <section>
-	<para>5.Finalmente, estos son los datos de red de nuestro servidor LTSP.</para>
+	<para>5.Despues de instalar LTSP, creamos la imagen de nuestro cliente: ltsp-build-client</para>
+</section>
+<section>
+	<para>6.Finalmente, estos son los datos de red de nuestro servidor LTSP.</para>
 </section>
 <section>
 	<figure>
