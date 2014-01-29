@@ -47,9 +47,12 @@ cleantmp:
 	rm -f $(FOPFILE)
 	rm -f $(XMLFILE)
 
+dirs:
+	mkdir output
+	mkdir tmp
+
 install:
 	@echo "=== [INFO] Installing development tools"
 	apt-get install xsltproc fop docbook-xsl-ns docbook5-xml
 	apt-get install ruby ri irb
-	mkdir output
-	mkdir tmp
+	make dirs
